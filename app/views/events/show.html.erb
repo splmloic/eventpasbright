@@ -1,0 +1,14 @@
+<div class="d-flex h-100 text-center ">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <h1><%= @event.title %></h1>
+        <p>
+            Description : <%= @event.description %><br/>
+            Nombre de Participant : jsp <br/>
+            Créateur : <%=@event.admin.email%> <br/>
+            date de début : <%= @event.start_date %><br/>
+            date de fin : <%= @event.start_date + @event.duration.minute %><br/>
+            lieu : <%= @event.location %><br/>
+            prix : <%= @event.price %>
+        </p>
+    </div>
+<div>

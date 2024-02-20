@@ -1,0 +1,53 @@
+<% if defined?(@event) && @event.errors.any? %>
+  <div class="alert alert-danger text-center">
+    <p>Erreur lors de la création du gossip : </p>
+    <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+  </div>
+<% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <br><br><br>
+      <p>Blablabla <%=current_user.first_name%></p>
+            <%= form_tag(events_path, method: "post") do %>
+            <div class="form-group">
+                <%= label_tag :start_date, "Date de début" %>
+                <%= datetime_local_field_tag 'event[start_date]', nil, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+                <%= label_tag :duration, "Durée" %>
+                <%= number_field_tag 'event[duration]', nil, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+                <%= label_tag :title, "Titre" %>
+                <%= text_field_tag 'event[title]', nil, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+                <%= label_tag :description, "Description" %>
+                <%= text_area_tag 'event[description]', nil, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+                <%= label_tag :price, "Prix" %>
+                <%= number_field_tag 'event[price]', nil, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+                <%= label_tag :location, "Lieu" %>
+                <%= text_field_tag 'event[location]', nil, class: "form-control" %>
+            </div>
+            <br>
+            <div class="form-group">
+                <%= submit_tag "Créer l'événement", class: "btn btn-primary" %>
+            </div>
+            <% end %>
+    </div>
+  </div>
+</div>

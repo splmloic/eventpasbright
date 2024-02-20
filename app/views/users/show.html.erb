@@ -1,0 +1,29 @@
+
+<div class="d-flex h-100 text-center ">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <h1>Profil de <%= @user.first_name %>  <%= @user.last_name %></h1>
+        <p>
+            prénom : <%= @user.first_name %><br/>
+            nom : <%= @user.last_name %><br/>
+            description : <%= @user.description %><br/>
+            e-mail : <%= @user.email %><br/>
+        </p>
+        <p>Vous souhaitez modifier votre Mail/Mot de passe ? </p>
+        <div class="col">
+        <%= link_to "Edit email / password", edit_user_registration_path, class:'btn btn-primary btn-lg' %>
+        </div>
+      <div class="container">
+        <!-- Example row of columns -->
+        <% @admins.each do |event| %>
+        <div class="row">
+          <div class="col-md-4">
+            <h2><%= event.title %></h2>
+            <p><%= event.description %></p>
+            <p><a class="btn btn-secondary" href="#" role="button">Voir l'évènement &raquo;</a></p>
+        </div>
+        <% end %>
+    </div>
+<div>
+
+
+

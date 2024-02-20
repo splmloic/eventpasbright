@@ -1,0 +1,36 @@
+<% if flash[:notice].present? %>
+    <div class="alert alert-success text-center">
+        <%= flash[:notice] %>
+    </div>
+<% end %>
+<main role="main">
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">Chineur De moment</h1>
+          <p>Bienvenue sur chineur de moment, la nouvelle application pour découvrir les derniers évènement branchés du moment</p>
+          <p><a class="btn btn-primary btn-lg" href="#" role="button">Crée un évènement &raquo;</a></p>
+        </div>
+    </div>
+
+      <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+        <% @events.each do |event| %>
+
+          <div class="col-md-4">
+            <h2><%= event.title %></h2>
+            <p><%= event.description %></p>
+            <p>Location : <%= event.location %></p>
+            <p class="small">Prix : <%= event.price %> €</p>
+            <p><a class="btn btn-secondary" href="<%= event_path(event) %>" role="button">En Savoir + &raquo;</a></p>
+                                 
+
+        </div>
+    <% end %>
+    <hr>
+
+    </div> <!-- /container -->
+
+</main>
