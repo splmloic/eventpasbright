@@ -19,7 +19,7 @@
           <div class="col-md-4">
             <h2><%= event.title %></h2>
             <p><%= event.description %></p>
-            <p><a class="btn btn-secondary" href="#" role="button">Voir l'évènement &raquo;</a></p>
+            <a class="btn btn-secondary" href="<%= event_path(event) %>" role="button">Voir l'évènement &raquo;</a>
         </div>
         <% end %>
     </div>
