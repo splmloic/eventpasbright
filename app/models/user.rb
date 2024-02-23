@@ -8,7 +8,7 @@ class User < ApplicationRecord
     validates :email, presence: true
     has_many :attendances
     has_many :events, through: :attendances
-
+    has_one_attached :avatar
     def welcome_send
         UserMailer.welcome_email(self).deliver_now
       end

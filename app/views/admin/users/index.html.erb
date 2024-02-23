@@ -1,0 +1,31 @@
+
+<h2>Liste des users</h2>
+    <div class="table-responsive">
+        <table class="table table-striped table-sm">
+            <thead>
+                <tr>
+                  <th>nom</th>
+                  <th>prénom</th>
+                  <th>mail</th>
+                  <th>description</th>
+                  <th>id</th>
+                  <th>éditer</th>
+                  <th>supprimer</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <%@users.each do |user|%>
+              <tbody>
+                <tr>
+                  <td><%=user.last_name%></td>
+                  <td><%=user.first_name%></td>
+                  <td><%=user.email%></td>
+                  <td><%=user.description%></td>
+                  <td><%=user.id%></td>
+                  <td><%= link_to "éditer l'utilisateur", edit_admin_user_path(user), data: { turbo_method: :delete }, class: "btn btn-warning btn-lg small" %></td>
+                  <td><%= button_to "Supprimer l'utilisateur", admin_user_path(user), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer cet utilisateur ?" }, class: "btn btn-danger btn-lg small" %></td>
+                </tr>
+                <tr>
+            <%end%>
+        </table>
+    </div>

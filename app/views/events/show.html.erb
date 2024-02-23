@@ -8,7 +8,15 @@
             date de début : <%= @event.start_date %><br/>
             date de fin : <%= @event.start_date + @event.duration.minute %><br/>
             lieu : <%= @event.location %><br/>
-            prix : <%= @event.price %>
+            prix : <%= @event.price %> €
         </p>
+        <% if current_user != @event.admin %>
+            <div class="col">
+            <%= link_to "S'inscrire", new_attendance_path(@event.id), class: "btn btn-primary" %>
+            <br>
+            <%= button_to "Passer commande (NEXT GEN)", checkout_create_path(total: @event.price,event_id: @event_id), class: "btn btn-primary", remote: true %>
+            </div>
+        <%end%>
     </div>
+
 <div>
